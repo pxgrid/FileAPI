@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>File</title>
+</head>
+<body>
+
+<p><input type="file" id="file"></p>
+<div id="mod-log">
+</div>
+
+<script>
+
+(function() {
+
+  var inputFile = document.getElementById('file');
+  function fileChange(e) {
+    var target = e.target;
+    var files = target.files;
+
+    console.log(files);
+  }
+
+  inputFile.addEventListener('change', fileChange, false);
+
+}());
+
+</script>
+
+</body>
+</html>

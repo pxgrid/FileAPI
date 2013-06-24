@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>FileReader</title>
+</head>
+<body>
+
+<p>選択できるファイルはJPEG画像ファイルです。<br>
+<input type="file" id="file"></p>
+<div id="mod-log">
+</div>
+
+<script>
+
+(function() {
+
+  var inputFile = document.getElementById('file');
+  var reader = new FileReader();
+
+  function fileChange(e) {
+    var target = e.target;
+    var file = target.files[0];
+    var type = file.type;
+    var size = file.size;
+
+    if ( type !== 'image/jpeg' ) {
+      alert('選択できるファイルはJPEG画像だけです。');
+      inputFile.value = '';
+      return;
+    }
+
+    reader.readAsDataURL(file);
+  }
+
+  function fileLoad() {
+    console.log(reader.result);
+  }
+
+  inputFile.addEventListener('change', fileChange, false);
+  reader.addEventListener('load', fileLoad, false);
+
+}());
+
+</script>
+
+</body>
+</html>

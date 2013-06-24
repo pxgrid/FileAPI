@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>File（制限あり）</title>
+</head>
+<body>
+
+<p>選択できるファイルは10KB以下のJPEG画像ファイルです。<br>
+<input type="file" id="file"></p>
+<div id="mod-log">
+</div>
+
+<script>
+
+(function() {
+
+  var inputFile = document.getElementById('file');
+
+  function fileChange(e) {
+    var target = e.target;
+    var file = target.files[0];
+    var type = file.type;
+    var size = file.size;
+    var limit = 10000; // byte, 10KB
+
+    if ( type !== 'image/jpeg' ) {
+      alert('選択できるファイルは10KB以下のJPEG画像だけです。');
+      inputFile.value = '';
+      return;
+    }
+
+    if ( limit < size ) {
+      alert('10KBを超えています。10KB以下のファイルを選択してください。');
+      inputFile.value = '';
+    }
+
+  }
+
+  inputFile.addEventListener('change', fileChange, false);
+
+}());
+
+</script>
+
+</body>
+</html>

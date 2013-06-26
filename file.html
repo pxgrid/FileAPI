@@ -15,8 +15,8 @@
 (function() {
 
   var inputFile = document.getElementById('file');
-  function fileChange(e) {
-    var target = e.target;
+  function fileChange(ev) {
+    var target = ev.target;
     var files = target.files;
 
     console.log(files);

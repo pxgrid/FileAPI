@@ -18,8 +18,8 @@
   var inputFile = document.getElementById('file');
   var reader = new FileReader();
 
-  function fileChange(e) {
-    var target = e.target;
+  function fileChange(ev) {
+    var target = ev.target;
     var file = target.files[0];
     var type = file.type;
     var size = file.size;

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>URL.createObjectURL</title>
+</head>
+<body>
+
+<input id="url" type="text">
+
+<script>
+
+(function() {
+
+  var inputUrl = document.getElementById('url');
+
+  var data = { a: 1 };
+  var type = { type: 'application\/json' };
+  var blob = new Blob([JSON.stringify(data)], type);
+
+  var url = URL.createObjectURL(blob);
+
+  inputUrl.value = url;
+
+}());
+
+</script>
+
+</body>
+</html>

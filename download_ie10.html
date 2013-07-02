@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Download with IE10</title>
+</head>
+<body>
+
+<a href="#" id="saveBlob">msSaveBlob</a><br>
+<a href="#" id="saveOrOpenBlob">msSaveOrOpenBlob</a>
+
+<script>
+
+(function() {
+
+  var data = { a: 1 };
+  var type = { type: 'application\/json' };
+  var blob = new Blob([JSON.stringify(data)], type);
+
+  function saveBlob() {
+    window.navigator.msSaveBlob(blob, 'data.json');
+  }
+
+  function saveOrOpenBlob() {
+    window.navigator.msSaveOrOpenBlob(blob, 'data.json');
+  }
+
+  document.body.addEventListener('click', function(ev) {
+    // 要素が2つしかない前提なので、全てpreventしています
+    ev.preventDefault();
+    var target = ev.target;
+
+    if ( target.id === 'saveBlob' ) {
+      saveBlob();
+    } else
+    if ( target.id === 'saveOrOpenBlob' ) {
+      saveOrOpenBlob();
+    }
+  }, false);
+
+}());
+
+</script>
+
+</body>
+</html>

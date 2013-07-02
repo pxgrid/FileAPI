@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Download</title>
+</head>
+<body>
+
+<a href="#" id="download">Download</a>
+
+<script>
+
+(function() {
+
+  var a = document.getElementById('download');
+
+  var data = { a: 1 };
+  var type = { type: 'application\/json' };
+  var blob = new Blob([JSON.stringify(data)], type);
+  var url = URL.createObjectURL(blob);
+
+  a.href = url;
+  a.download = 'data.json';
+
+}());
+
+</script>
+
+</body>
+</html>

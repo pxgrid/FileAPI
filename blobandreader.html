@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Blob and FileReader</title>
+</head>
+<body>
+
+<script>
+
+(function() {
+
+  var blob = new Blob([JSON.stringify({a: 1})], { type: 'applicatioin\/json' });
+  var reader = new FileReader();
+
+  function fileLoad() {
+    console.log(reader.result);
+  }
+
+  reader.addEventListener('load', fileLoad, false);
+
+  reader.readAsText(blob);
+
+}());
+
+</script>
+
+</body>
+</html>

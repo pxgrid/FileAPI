@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Blob2</title>
+</head>
+<body>
+
+<script>
+
+(function() {
+
+  var data = { a: 1 };
+  var data2 = { b: 2 };
+  var type = { type: 'application\/json' };
+  var blob = new Blob([JSON.stringify(data), JSON.stringify(data2)], type);
+
+  console.log(blob);
+
+}());
+
+</script>
+
+</body>
+</html>
